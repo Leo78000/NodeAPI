@@ -8,12 +8,26 @@ const cors = require('cors');
 const axios = require('axios');
 const dest_dir = join(tmpdir(), 'monDossier');
 const { connection } = require('./database')
-
+var request = require('request');
+var app = express();
 const server = express();
 const port = 3000;
+server.set('view engine', 'ejs');
 server.use(bodyParser.json());
 server.use(cors());
 
+
+
+router.get('/recherche', function(req, res){
+    var query = req.query.search;
+    var url = 'https://www.omdbapi.com/?s=' + query + '&apikey=6812ed41';
+    request(url, function(error, response, body){
+        if(!error && response.statusCode == 200){
+            var data = JSON.parse(body)
+            res.render('recherche', {data: data});
+        }
+    });
+});
 
 
 router.get('/movies', (req, res) => {

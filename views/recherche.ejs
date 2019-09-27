@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+<title>Results Page</title>
+</head>
+<body>
+        <h1>Cherche un film:</h1>
+
+        <form action="/recherche" method="get">
+            <input type="text" name="search" placeholder="search term">
+            <input type="submit">
+        </form>
+	<h2>Résultat</h2>
+	<table border = "2">
+	  <tr>
+	    <th>Année</th>
+	    <th>Nom</th>
+	    <th>Couverture</th>
+	    <th>Lien IMDB</th>
+	  </tr>
+	  <% data['Search'].forEach(function(movie){ %>
+	  <tr>
+	    <% var imdb_url = 'https://www.imdb.com/title/' + movie['imdbID'] %>
+	    <td><%= movie['Year'] %></td>
+	    <td><%= movie['Title'] %></td>
+	    <td><img src="<%= movie['Poster'] %>" alt=""></td>
+	    <td><a href="<%= imdb_url %>">Voir sur IMDB</a></td>
+	  </tr>
+	  <% }) %>
+	</table>
+	<br/>
+ 	<a href="/recherche">Autre recherche</a>
+</body>
+</html>
