@@ -10,16 +10,16 @@ NOMS COLONNE : id (Auto incrémentée), title(VARCHAR), date(DATE)
 
 Liste des routes:
 
-/movies : liste des films en bdd
+/movies(GET) : récupère liste des films en bdd en crée un fichier temporaire avec toutes les données de la BDD
 
-/addmovies : ajouter un film à la bdd
+/addmovies(POST) : ajouter un film à la bdd
 
-/editmovies/id : editer le film qui dont l'id est dans l'url
+/editmovies/id(PUT) : editer le film qui dont l'id est dans l'url
 
-/deletemovie/id : supprime le film dont l'id est dans l'url
+/deletemovie/id(DELETE) : supprime le film dont l'id est dans l'url
 
-/recherche : recherche de films lié à IMDB
+/recherche(GET) : recherche de films lié à IMDB
 
-/ : redirection vers /recherche
+/(GET): redirection vers /recherche
 
 
