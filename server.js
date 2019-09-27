@@ -1,9 +1,12 @@
+const { join } = require('path');
+const { tmpdir } = require('os');
 const express = require('express');
 const router = express.Router();
 const { pushFile } = require('./liste');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const axios = require('axios');
+const dest_dir = join(tmpdir(), 'monDossier');
 const { connection } = require('./database')
 
 const server = express();
@@ -19,6 +22,7 @@ router.get('/movies', (req, res) => {
         .then(messages => res.status(201).json({message: messages}))
         .catch((err)=> res.status(201).json({ message : err}))
     })
+    
 });
 
 router.post('/addmovie', (req, res) =>{

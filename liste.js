@@ -15,6 +15,7 @@ function pushFile(moviesInfos) {
                 const movieNameToCreate = join(dest_dir, `Movies.txt`);
                 const content = 'Contenu du fichier : \n'+ jsonStringSpace +'\n';
                 const message = `Chemin du fichier qui vient d'être créer : ${movieNameToCreate}`;
+                console.log(`La liste des films est disponible ici : ${dest_dir}`)
             
                 fs.writeFile(movieNameToCreate, content, (err) => {
                     if(err) reject(err)
