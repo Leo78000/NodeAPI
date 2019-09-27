@@ -16,6 +16,10 @@ server.set('view engine', 'ejs');
 server.use(bodyParser.json());
 server.use(cors());
 
+router.get('/', function(req, res){
+    res.redirect('localhost:3000/recherche');
+
+});
 
 
 router.get('/recherche', function(req, res){
